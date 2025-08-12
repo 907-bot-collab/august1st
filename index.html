@@ -366,6 +366,25 @@ passwordRef.addEventListener("focus", () => {
     `;
     normalEyeStyle();
 });
+      const loginForm = document.querySelector('.form');
+    const usernameInput = loginForm.querySelector('input[type="text"]');
+    const passwordInput = loginForm.querySelector('input[type="password"]');
+    const loginBtn = document.getElementById('login-btn');
+    const errorMsg = document.getElementById('error-msg');
+
+    loginBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (username === 'swathi' && password === 'chocolate') {
+            // Login successful, redirect to dashboard
+            window.location.href = "ring-loader.html";
+        } else {
+            // Login failed, display error message
+            errorMsg.textContent = 'Invalid username or password';
+        }
+    });
 
 //When clicked outside username and password input
 document.addEventListener("click", (e) => {
